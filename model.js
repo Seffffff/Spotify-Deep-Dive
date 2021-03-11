@@ -33,8 +33,8 @@ function getPlaylists(){
 }
 
 function getPlaylist(playlist_id){
-    var playlist_id = '40Ijt7B9sCqKQCR4U1fw6c'
-    var url = 'https://api.spotify.com/v1/playlists/' + playlist_id;
+    //var playlist_id_placeholder = '40Ijt7B9sCqKQCR4U1fw6c'
+    var url = 'https://api.spotify.com/v1/playlists/' + playlist_id_placeholder;
     request({
         url: url,
         headers: {
