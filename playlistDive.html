@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Playlist Deep Dive with Spotify</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <style type="text/css">
+        #login,
+        #loggedin {
+            display: none;
+        }
+
+        .text-overflow {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Playlists for {{display_name}}</h1>
+    </div>
+
+    <div id="playlists"></div>
+    <div style="display: none;" id="templates">
+        <div id='playlist-template'>
+            <span id='playlist-name'></span>
+            <img id='playlist-image' />
+        </div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script>
+        (function(){
+            var playlists = $("#playlists");//this is the playlist obj passed
+            for(var i = 0; i < playlists.length; i++){
+                var playlistName = playlists[i].name;
+                var playlistImage = playlists[i].images[0];
+
+                var listClone = $("#templates #post-template").clone();
+                listClone.find("#playlist-name").text(playlistName);
+                listClone.find("#playlist-Image").attr('src', playlistImage);
+
+                playlists.append(listClone);
+            }
+        });
+    </script>
+</body>
+
+
+</html>
